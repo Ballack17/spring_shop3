@@ -13,6 +13,8 @@
 	<groupId>geekbrains</groupId>
 	<artifactId>spring_shop</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
 	<name>spring_shop</name>
 	<description>online_shop project for Spring Boot</description>
 
@@ -39,6 +41,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>2.0.1.Final</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -97,20 +106,12 @@
 
 	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
+<!--	<build>-->
+<!--		<plugins>-->
+<!--			<plugin>-->
+<!--				<groupId>org.springframework.boot</groupId>-->
+<!--				<artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--			</plugin>-->
 <!--			<plugin>-->
 <!--				<groupId>org.flywaydb</groupId>-->
 <!--				<artifactId>flyway-maven-plugin</artifactId>-->
@@ -118,13 +119,13 @@
 <!--				<configuration>-->
 <!--					<url>jdbc:mysql://localhost:3306/shop_db?allowPublicKeyRetrieval=true&amp;useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</url>-->
 <!--					<user>root</user>-->
-<!--					<password>Ltnjxrf1ltnjxrf2</password>-->
+<!--					<password>Ltnjxrf1</password>-->
 <!--					<schemas>-->
-<!--						<schema>shop</schema>-->
+<!--						<schema>shop_db</schema>-->
 <!--					</schemas>-->
 <!--				</configuration>-->
 <!--			</plugin>-->
-		</plugins>
-	</build>
+<!--		</plugins>-->
+<!--	</build>-->
 
 </project>
