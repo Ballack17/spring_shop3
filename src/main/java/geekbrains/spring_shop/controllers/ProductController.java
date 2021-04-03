@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.time.LocalDateTime;
 
 @Controller
 @RequestMapping("/products")
@@ -21,6 +22,7 @@ public class ProductController {
     private ProductService productService;
     private CategoryService categoryService;
     private ImageSaverService imageSaverService;
+    private Long bufferId;
 
     @Autowired
     public void setProductService(ProductService productService) {
@@ -40,6 +42,8 @@ public class ProductController {
     @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable(name = "id") Long id) {
         Product product = productService.getProductById(id);
+        bufferId = id;
+
         if (product == null) {
             product = new Product();
             product.setId(0L);
@@ -68,6 +72,9 @@ public class ProductController {
             product.addImage(productImage);
         }
 
+        if (bufferId!=0) {
+            product.setCreatedAt(productService.getProductById(bufferId).getCreatedAt());
+        }
         productService.saveProduct(product);
         return "redirect:/shop";
     }

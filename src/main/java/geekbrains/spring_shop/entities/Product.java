@@ -48,7 +48,7 @@ public class Product {
     private String fullDescription;
 
     @NotNull(message = "price not null")
-    @Min(value = 1, message = "Min 1")
+    @Min(value = 0, message = "Min 0")
     @Column(name = "price")
     private double price;
 
